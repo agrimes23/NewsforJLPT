@@ -64,6 +64,8 @@ web_modules/
 .rts2_cache_umd/
 
 .angular/cache/
+/.angular/cache/
+.angular/
 
 # Optional REPL history
 .node_repl_history
