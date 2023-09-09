@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NewsApiService } from '../../services/news-api.service';
 
 @Component({
   selector: 'app-news-card',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./news-card.component.css']
 })
 export class NewsCardComponent {
-  title: string = 'Japanese News App';
+  newsData: any; // To store the retrieved data
+  title: string = "Japanese News App";
+  constructor(private newsService: NewsApiService) {}
+
+  fetchData(): void {
+    this.newsService.getTopHeadlines().subscribe((data) => {
+      // Store the retrieved data in the newsData property
+      this.newsData = data;
+    });
+  }
 }
