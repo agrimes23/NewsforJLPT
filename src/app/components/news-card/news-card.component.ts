@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsApiService } from '../../services/news-api.service';
+import { KanjiApiService } from 'src/app/services/kanji-api.service';
 
 @Component({
   selector: 'app-news-card',
@@ -8,8 +9,9 @@ import { NewsApiService } from '../../services/news-api.service';
 })
 export class NewsCardComponent implements OnInit {
   newsData: any; // To store the retrieved data
+  kanjiData: any;
   title: string = "Japanese News App";
-  constructor(private newsService: NewsApiService) {}
+  constructor(private newsService: NewsApiService, private kanjiService: KanjiApiService) {}
 
   ngOnInit(): void {
     this.newsService.getNewsData().subscribe((data) => {
@@ -22,4 +24,17 @@ export class NewsCardComponent implements OnInit {
       }
     );
   }
+
+  onButtonClick(): void {
+    this.kanjiService.getKanji().subscribe(
+      (data) => {
+        this.kanjiData = data;
+        console.log('Kanji Data', this.kanjiData);
+      },
+      (error) => {
+        console.error('Error fetching kanji data', error);
+      }
+    )
+  }
+
 }
