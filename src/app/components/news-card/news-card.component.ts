@@ -15,6 +15,11 @@ export class NewsCardComponent implements OnInit {
     this.newsService.getNewsData().subscribe((data) => {
       // Store the retrieved data in the newsData property
       this.newsData = data;
-    });
+      console.log('News Data:', this.newsData);
+    },
+      (error) => {
+        console.error('Error fetching news data: ', error)
+      }
+    );
   }
 }
