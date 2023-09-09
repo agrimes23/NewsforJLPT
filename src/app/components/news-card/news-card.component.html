@@ -1,10 +1,9 @@
-<div class="flex flex-col items-center">
+<div class="flex flex-col items-center w-screen">
     <header>
         <h1 class="text-4xl my-10">{{ title }}</h1>
     </header>
 
-    <!-- <button class="w-[300px] h-[50px] rounded bg-[#7c0404] text-white">Fetch News</button> -->
-    <div class="flex mx-20 items-center" *ngIf="newsData">
+    <div class="flex mx-10 max-w-5xl items-center" *ngIf="newsData">
         <ul>
             <li class="my-10" *ngFor="let article of newsData.articles">
                 <h3 class="text-green-600 font-bold text-lg">{{ article.title }}</h3>
