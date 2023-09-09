@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NewsApiService } from '../../services/news-api.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class NewsCardComponent {
   constructor(private newsService: NewsApiService) {}
 
   fetchData(): void {
-    this.newsService.getTopHeadlines().subscribe((data) => {
+    this.newsService.getNewsData().subscribe((data) => {
       // Store the retrieved data in the newsData property
       this.newsData = data;
     });
