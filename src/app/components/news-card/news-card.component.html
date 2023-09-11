@@ -11,5 +11,19 @@
             </li>
         </ul>
     </div>
+    <h2>Kanji</h2>
+
+    <button class="bg-purple-500 w-40 mb-10" (click)="onButtonClick()">Get Kanji</button>
+    <div class="flex mx-10 max-w-5xl items-center mb-44" *ngIf="kanjiData">
+        <ul>
+            <li class="my-10" *ngFor="let kanji of kanjiData.words">
+                <h3 class="text-green-600 font-bold text-lg">{{ kanji.word }}</h3>
+                <h3 class="text-pink-400 font-bold text-lg">{{ kanji.meaning }}</h3>
+                <h3 class="text-green-600 font-bold text-lg">Furigana: {{ kanji.furigana }}</h3>
+                <h3 class="text-green-600 font-bold text-lg">Romaji: {{ kanji.romaji }}</h3>
+                <h3 class="text-green-600 font-bold text-lg">{{ kanji.level }}級</h3>
+            </li>
+        </ul>
+    </div>
 
 </div>
