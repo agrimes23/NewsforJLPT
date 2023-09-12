@@ -10,7 +10,7 @@ export class KanjiApiService {
   
   constructor(private http: HttpClient) { }
 
-  getKanji(): Observable<any> {
-    return this.http.get(this.kanjiApiUrl);
+  getKanjiByLevel(level:number): Observable<any> {
+    return this.http.get(`${this.kanjiApiUrl}/${level}`);
   }
 }

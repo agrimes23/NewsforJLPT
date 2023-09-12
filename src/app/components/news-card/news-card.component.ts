@@ -11,6 +11,7 @@ export class NewsCardComponent implements OnInit {
   newsData: any; // To store the retrieved data
   kanjiData: any;
   title: string = "Japanese News App";
+
   constructor(private newsService: NewsApiService, private kanjiService: KanjiApiService) {}
 
   ngOnInit(): void {
@@ -25,8 +26,8 @@ export class NewsCardComponent implements OnInit {
     );
   }
 
-  onButtonClick(): void {
-    this.kanjiService.getKanji().subscribe(
+  onButtonClick(selectedLevel: number): void {
+    this.kanjiService.getKanjiByLevel(selectedLevel).subscribe(
       (data) => {
         this.kanjiData = data;
         console.log('Kanji Data', this.kanjiData);

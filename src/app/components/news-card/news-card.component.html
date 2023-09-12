@@ -13,7 +13,12 @@
     </div>
     <h2>Kanji</h2>
 
-    <button class="bg-purple-500 w-40 mb-10" (click)="onButtonClick()">Get Kanji</button>
+    <!-- Try to do get each word in news description and find it in the Kanji API -->
+    <button class="bg-blue-500 w-40 mb-10" (click)="onButtonClick(5)">Get Kanji N5</button>
+    <button class="bg-green-500 w-40 mb-10" (click)="onButtonClick(4)">Get Kanji N4</button>
+    <button class="bg-yellow-500 w-40 mb-10" (click)="onButtonClick(3)">Get Kanji N3</button>
+    <button class="bg-orange-500 w-40 mb-10" (click)="onButtonClick(2)">Get Kanji N2</button>
+    <button class="bg-red-500 w-40 mb-10" (click)="onButtonClick(1)">Get Kanji N1</button>
     <div class="flex mx-10 max-w-5xl items-center mb-44" *ngIf="kanjiData">
         <ul>
             <li class="my-10" *ngFor="let kanji of kanjiData.words">
