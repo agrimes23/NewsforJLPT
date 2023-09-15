@@ -8,6 +8,7 @@
             <li class="my-10">
                 <h3 class="text-green-600 font-bold text-lg">{{ newsData.articles[0].title }}</h3>
                 <p class="text-lg">{{ newsData.articles[0].description }}</p>
+                <p>asdf <span>hello</span> asdf</p>
             </li>
             <li class="my-10">
                 <h3 class="text-green-600 font-bold text-lg">{{ newsData.articles[1].title }}</h3>
@@ -15,10 +16,11 @@
             </li>
         </ul>
     </div>
+
     <h2>Kanji</h2>
 
     <!-- Try to do get each word in news description and find it in the Kanji API -->
-    <button class="bg-blue-500 w-40 mb-10" (click)="onButtonClick(5)">Get Kanji N5</button>
+    <!-- <button class="bg-blue-500 w-40 mb-10" (click)="onButtonClick(5)">Get Kanji N5</button>
     <button class="bg-green-500 w-40 mb-10" (click)="onButtonClick(4)">Get Kanji N4</button>
     <button class="bg-yellow-500 w-40 mb-10" (click)="onButtonClick(3)">Get Kanji N3</button>
     <button class="bg-orange-500 w-40 mb-10" (click)="onButtonClick(2)">Get Kanji N2</button>
@@ -33,6 +35,6 @@
                 <h3 class="text-green-600 font-bold text-lg">{{ kanji.level }}級</h3>
             </li>
         </ul>
-    </div>
+    </div> -->
 
 </div>

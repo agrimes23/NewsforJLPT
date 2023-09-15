@@ -6,10 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class N4VocabService {
 
-  constructor(private http: HttpClient) { }
+  private kanjiWordsUrl = 'http://localhost:5000/api/search';
+  constructor(private http: HttpClient) {}
 
-  getN4Data() {
-    return this.http.get('/vocab/n4data');
+  // Update this method to send searchWords to the backend
+  searchWords() {
+    return this.http.get(this.kanjiWordsUrl);
   }
 
 }
