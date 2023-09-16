@@ -24,17 +24,19 @@ export class NewsCardComponent implements OnInit {
     this.newsService.getNewsData().subscribe((data: any) => {
       // Store the retrieved data in the newsData property
       this.newsData = data;
+
+
       console.log('News Data:', this.newsData);
     },
       (error) => {
         console.error('Error fetching news data: ', error)
       }
     );
-    // this.vocabService.searchWords().subscribe((data: any) => {
-    //   this.searchResults = data;
-    //   console.log("this is frontend data from back: " + JSON.stringify(this.searchResults))
-    // })
+    this.vocabService.searchWords().subscribe((data: any) => {
+      this.n4data = data;
+      console.log("n4 vocab within articles: ", JSON.stringify(this.n4data))
+    })
+  
   }
-
 
 }
