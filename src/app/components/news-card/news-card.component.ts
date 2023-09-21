@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { NewsApiService } from '../../services/news-api.service';
 import { KanjiApiService } from 'src/app/services/kanji-api.service';
 import { N4VocabService } from 'src/app/services/n4-vocab.service';
+import { KanjiColorPipe } from '../../pipes/kanji-color.pipe';
 
 @Component({
   selector: 'app-news-card',
@@ -15,8 +16,9 @@ export class NewsCardComponent implements OnInit {
   searchWords: string[] = ['word1', 'word2', 'word3'];
   searchResults: any[] = [];
   n4data: any;
+  article: any;
 
-  constructor(private newsService: NewsApiService, private kanjiService: KanjiApiService, private vocabService: N4VocabService) {}
+  constructor(private newsService: NewsApiService, private kanjiService: KanjiApiService, private vocabService: N4VocabService, @Inject(KanjiColorPipe) private kanjiColorPipe: KanjiColorPipe) { }
 
   ngOnInit(): void {
 
@@ -37,6 +39,10 @@ export class NewsCardComponent implements OnInit {
       console.log("n4 vocab within articles: ", JSON.stringify(this.n4data))
     })
   
+  }
+
+  getHighlightedDescription(article: any): { word: string, isN4: boolean }[] {
+    return this.kanjiColorPipe.transform(article.description, this.searchWords);
   }
 
 }

@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewsCardComponent } from './components/news-card/news-card.component';
+import { KanjiColorPipe } from './pipes/kanji-color.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewsCardComponent
+    NewsCardComponent,
+    KanjiColorPipe
   ],
   imports: [
     BrowserModule,

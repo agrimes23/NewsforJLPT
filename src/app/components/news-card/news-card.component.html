@@ -5,15 +5,16 @@
 
     <div class="flex mx-10 max-w-5xl items-center" *ngIf="newsData">
         <ul>
-            <li class="my-10">
-                <h3 class="text-green-600 font-bold text-lg">{{ newsData.articles[0].title }}</h3>
-                <p class="text-lg">{{ newsData.articles[0].description }}</p>
-                <p>asdf <span>hello</span> asdf</p>
-            </li>
-            <li class="my-10">
-                <h3 class="text-green-600 font-bold text-lg">{{ newsData.articles[1].title }}</h3>
-                <p class="text-lg">{{ newsData.articles[1].description }}</p>
-                
+            <li class="my-10" *ngFor="let article of newsData.articles">
+                <h3 class="text-green-600 font-bold text-lg">{{ article.title }}</h3>
+                <p class="text-lg">
+                    <ng-container *ngFor="let wordObj of getHighlightedDescription(article)">
+                      <ng-container *ngIf="wordObj.isN4; else nonN4Word">
+                        <span class="kanji-word">{{ wordObj.word }}</span>
+                      </ng-container>
+                      <ng-template #nonN4Word>{{ wordObj.word }}</ng-template>
+                    </ng-container>
+                  </p>
             </li>
         </ul>
     </div>
